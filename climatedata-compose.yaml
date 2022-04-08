@@ -1,0 +1,27 @@
+version: "3.9"
+    
+services:
+  db:
+    image: docker-registry.crim.ca/ccdp/db:latest
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: climatedata
+      MARIADB_USER: climatedata
+      MARIADB_PASSWORD: climatedata
+    command: --innodb-buffer-pool-size=128M --innodb-log-buffer-size=64M --innodb-doublewrite=0 --innodb-flush-log-at-trx-commit=0
+    
+  portal:
+    depends_on:
+      - db
+    image: docker-registry.crim.ca/ccdp/portal:latest
+    volumes:
+      - ./climatedata-wp-theme:/var/www/html/site/assets/themes
+    ports:
+      - "443:443"
+    hostname: dev.climatedata.ca
+    restart: always
+volumes:
+  db_data: {}
