@@ -23,5 +23,13 @@ services:
       - "443:443"
     hostname: dev.climatedata.ca
     restart: always
+
+  sass:
+    image: registry.gitlab.com/crim.ca/clients/ccdp/docker/sass:latest
+    volumes:
+      - ./climatedata-wp-theme:/climatedata-wp-theme
+    restart: always
+    command: sass -w /climatedata-wp-theme/climate-data-ca/resources/scss/child.scss /climatedata-wp-theme/climate-data-ca/resources/css/child.css
+
 volumes:
   db_data: {}
