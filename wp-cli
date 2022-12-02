@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Running wp-cli inside portal Docker container"
+
+./compose-wrapper.sh exec -e HTTP_HOST="dev-en.climatedata.ca" -e SERVER_PORT=443 -u www-data portal wp-cli "$@"
