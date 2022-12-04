@@ -37,6 +37,10 @@ The database content of your development environment will persist even after pul
 of the docker images. If you want to delete your database volume to update the content, run:
 `./compose-wrapper.sh down -v; ./compose-wrapper.sh up -d`
 
+## WordPress command line
+
+You can run `./wp-cli` to execute wp-cli inside Portal's Docker container. Example: `./wp-cli plugin list`
+
 ## Display PHP errors and warnings
 
 You can enable or disable the PHP errors and warnings reporting using the following command: `set-log-reporting.sh <on|off>`
