@@ -2,4 +2,7 @@
 
 echo "Running wp-cli inside portal Docker container"
 
-./compose-wrapper.sh exec -e HTTP_HOST="dev-en.climatedata.ca" -e SERVER_PORT=443 -u apache -w /var/www/html portal wp-cli "$@"
+: "${HTTP_HOST:=dev-en.climatedata.ca}"
+: "${CLI_USER:=apache}"
+
+./compose-wrapper.sh exec -e HTTP_HOST="$HTTP_HOST" -e SERVER_PORT=443 -u $CLI_USER -w /var/www/html portal wp-cli "$@"
