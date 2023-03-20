@@ -24,7 +24,5 @@ case $1 in
         ;;
 esac
 
-echo $CMD
-
-bash -x ./compose-wrapper.sh exec portal sed -i -re "$CMD" /usr/local/etc/php/conf.d/ccdp.ini
+./compose-wrapper.sh exec portal sed -i -re "$CMD" /etc/php.d/ccdp.ini
 ./compose-wrapper.sh restart portal
