@@ -14,15 +14,18 @@ fi
 
 case $1 in
     on)
-        CMD="s/^display_errors.*/display_errors = On/"
+        INICMD="s/^display_errors.*/display_errors = On/"
+        WPCMD="s/^define.*WP_DEBUG.*/define('WP_DEBUG', true);/"
         ;;
     off)
-        CMD="s/^display_errors.*/display_errors = Off/"
+        INICMD="s/^display_errors.*/display_errors = Off/"
+        WPCMD="s/^define.*WP_DEBUG.*/define('WP_DEBUG', false);/"
         ;;
     *)
         usage
         ;;
 esac
 
-./compose-wrapper.sh exec portal sed -i -re "$CMD" /etc/php.d/ccdp.ini
-./compose-wrapper.sh restart portal
+./compose-wrapper.sh exec portal sed -i -re "$INICMD" /etc/php.d/ccdp.ini
+./compose-wrapper.sh exec portal sed -i -re "$WPCMD" /var/www/html/site/wp-config.php
+# ./compose-wrapper.sh restart portal

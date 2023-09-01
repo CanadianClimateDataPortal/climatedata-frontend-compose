@@ -16,7 +16,7 @@ services:
   portal:
     depends_on:
       - db
-    image: registry.gitlab.com/crim.ca/clients/ccdp/docker/portal:php74
+    image: registry.gitlab.com/crim.ca/clients/ccdp/docker/portal:php82
     volumes:
       - ./climatedata-wp-theme:/var/www/html/site/assets/themes
     ports:
