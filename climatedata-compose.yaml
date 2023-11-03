@@ -29,7 +29,7 @@ services:
     volumes:
       - ./climatedata-wp-theme:/climatedata-wp-theme
     restart: always
-    command: sass -w /climatedata-wp-theme/fw-child/resources/scss/child.scss /climatedata-wp-theme/fw-child/resources/css/child.css
+    command: sass -w /climatedata-wp-theme/fw-child/resources/scss/child.scss:/climatedata-wp-theme/fw-child/resources/css/child.css /climatedata-wp-theme/framework/resources/scss/framework.scss:/climatedata-wp-theme/framework/resources/css/framework.css /climatedata-wp-theme/framework/resources/scss/global.scss:climatedata-wp-theme/framework/resources/css/global.css
 
 volumes:
   db_data: {}
