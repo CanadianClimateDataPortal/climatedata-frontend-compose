@@ -19,9 +19,10 @@ then
     exit 1
 fi
 
-for d in ./climatedata-wp-theme/climate-data-ca/resources/app/run-frontend-sync/ ./climatedata-wp-theme/climate-data-ca/resources/app/ ./climatedata-wp-theme/climate-data-ca/resources/app/run-frontend-station-download/
+for d in ./climatedata-wp-theme/fw-child/resources/app/
 do
-  cp ./db.php $d
+    mkdir -p $d
+    cp ./db.php $d
 done
 
 if [[ -f override.yaml ]]
