@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+./compose-wrapper.sh exec portal tail -f  /var/log/php-fpm/www-error.log
