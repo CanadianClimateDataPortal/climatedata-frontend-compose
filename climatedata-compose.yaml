@@ -19,6 +19,8 @@ services:
     image: registry.gitlab.com/crim.ca/clients/ccdp/docker/portal:v2
     volumes:
       - ./climatedata-wp-theme:/var/www/html/site/assets/themes
+      - ./xdebug.so:/usr/lib64/php/modules/xdebug.so  # Mount xdebug.so file
+      - ./20-xdebug.ini:/etc/php.d/20-xdebug.ini     # Mount 20-xdebug.ini file
     ports:
       - "443:443"
     hostname: dev.climatedata.ca
