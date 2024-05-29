@@ -58,6 +58,8 @@ services:
       - mail:1.2.3.4
 ```
 
+To change the destination e-mail of the form submission, copy climatedata-wp-theme/climate-data-ca/default\_config.php to local_config.php and update its settings.
+
 ## Enable xdebug
 
 Similar to Outbound SMTP, just use this override.yaml
@@ -70,5 +72,3 @@ services:
     volumes:
       - ./20-xdebug.ini:/etc/php.d/20-xdebug.ini:ro
 ```
-
-To change the destination e-mail of the form submission, copy climatedata-wp-theme/climate-data-ca/default\_config.php to local_config.php and update its settings.
