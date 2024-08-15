@@ -30,6 +30,12 @@ then
   OVERRIDE="-f override.yaml"
 fi
 
+if ! command -v docker-compose &> /dev/null
+then
+    echo "docker-compose not found, trying to use docker compose instead"
+    docker compose -f climatedata-compose.yaml $OVERRIDE "$@"
+    exit
+fi
 docker-compose -f climatedata-compose.yaml $OVERRIDE "$@"
 
 # Prompt for return to keep MinGw windows opened in case the script was launched from cmd.exe
