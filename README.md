@@ -5,22 +5,33 @@
 
 
 ## Steps to run
-1. Clone climatedata-wp-theme repository in the current folder:
-  
-`git clone git@github.com:CanadianClimateDataPortal/climatedata-wp-theme.git`
-
-or
-
-`git clone https://github.com/CanadianClimateDataPortal/climatedata-wp-theme.git`
-
-2. Run `./compose-wrapper.sh up -d`
-3. **(Optional)** Add the following entry to your hosts file (/etc/hosts under Linux/macOS, 
-  c:\windows\system32\drivers\etc under Windows). Make sure you replace the ip address with the appropriate one to 
-  reach your Docker VM/instance. Note that this step is only required if the IP is not 127.0.0.1:
-
-`1.2.3.4  dev-en.climatedata.ca dev-fr.climatedata.ca`
-
-4. Browse to https://dev-en.climatedata.ca to reach your development instance, and
+1. Clone the current repository, and move into its directory:
+   ```shell
+   git clone git@github.com:CanadianClimateDataPortal/climatedata-frontend-compose.git
+   ```
+2. Inside the `climatedata-frontend-compose/` directory, clone the
+   [climatedata-wp-theme repository](https://github.com/CanadianClimateDataPortal/climatedata-wp-theme),
+   and switch to the `release/v1.x` branch:
+   ```shell
+   cd climatedata-frontend-compose
+   git clone git@github.com:CanadianClimateDataPortal/climatedata-wp-theme.git
+   cd climatedata-wp-theme
+   git checkout release/v1.x
+   ```
+3. Move back to the `climatedata-frontend-compose` directory, and start the Docker containers:
+   ```shell
+   # Move back to the `climatedata-frontend-compose` directory
+   cd ..
+   # Start the Docker containers
+   ./compose-wrapper.sh up -d
+   ```
+4. **(Optional)** Add the following entry to your hosts file (/etc/hosts under Linux/macOS, 
+   c:\windows\system32\drivers\etc under Windows). Make sure you replace the ip address with the appropriate one to 
+   reach your Docker VM/instance. Note that this step is only required if the IP is not 127.0.0.1:
+   ```
+   1.2.3.4  dev-en.climatedata.ca dev-fr.climatedata.ca
+   ```
+5. Browse to https://dev-en.climatedata.ca to reach your development instance, and
    https://dev-en.climatedata.ca/wp-admin to access WordPress administration.
    Username: **dev**, password: **climatedata**
 
