@@ -1,4 +1,13 @@
-# Docker compose for climatedata.ca portal
+# Docker compose for climatedata.ca portal (deprecated)
+
+> [!IMPORTANT]
+> This repository is now deprecated, do not use it.
+> 
+> It was used to set up a development environment for version 1 of the Portal.
+> [The repository of the Portal](https://github.com/CanadianClimateDataPortal/climatedata-wp-theme)
+> now contains everything to set up a development environment.
+> 
+> [See this documentation](https://github.com/CanadianClimateDataPortal/climatedata-wp-theme/blob/main/docs/developing-with-docker-compose.md).
 
 ## Prerequisites
 * Install docker-ce and docker-compose
